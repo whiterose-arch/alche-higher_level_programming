@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """Defines safe_print_division."""
-
-
 def safe_print_division(a, b):
     """Divide a by b, printing the result in a finally block."""
     result = None
