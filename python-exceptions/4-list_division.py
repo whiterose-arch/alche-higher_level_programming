@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Defines list_division."""
+
+
 def list_division(my_list_1, my_list_2, list_length):
     """Divide element by element two lists into a new list."""
     new_list = []
