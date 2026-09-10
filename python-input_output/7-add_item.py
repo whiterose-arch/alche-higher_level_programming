@@ -1,24 +1,14 @@
 #!/usr/bin/python3
-
-"""
-Adds all arguments to a Python list, and then saves them to a file.
-Args:
-    args (list): The list of arguments to add to the file.
-Returns:
-    None
-"""
-
-import os
+"""Adds all arguments to a Python list and saves them to a file."""
 import sys
 
-load_from_json_file = __import__("6-load_from_json_file").load_from_json_file
-save_to_json_file = __import__("5-save_to_json_file").save_to_json_file
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-def add_item(args):
-  my_list = load_from_json_file("add_item.json") if os.path.exists("add_item.json") else []
-  my_list.extend(args)
-  save_to_json_file(my_list, "add_item.json")
+try:
+    items = load_from_json_file("add_item.json")
+except Exception:
+    items = []
 
-if __name__ == "__main__":
-  add_item(sys.argv[1:])
-  
+items.extend(sys.argv[1:])
+save_to_json_file(items, "add_item.json")
